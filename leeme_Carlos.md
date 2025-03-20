@@ -12,3 +12,6 @@ npx @tailwindcss/cli -i ./src/source.css -o ./src/styles.css --watch
 
 #Animate.css
 [text](https://animate.style/)
+
+#VenoBox Gallery
+[text](https://veno.es/venobox/)

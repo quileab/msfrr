@@ -1,3 +1,4 @@
+// Animaciones con Intersection Observer
 const animate = document.querySelectorAll(".animate__animated");
 
 const observer = new IntersectionObserver((entries) => {
@@ -21,4 +22,20 @@ const observer = new IntersectionObserver((entries) => {
 
 animate.forEach((element) => {
   observer.observe(element);
+});
+
+// Navbar
+const menuToggle = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+const menuIcon = document.getElementById("menu-icon");
+const closeIcon = document.getElementById("close-icon");
+
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+  menuIcon.classList.toggle("hidden");
+  closeIcon.classList.toggle("hidden");
+});
+
+new VenoBox({
+  selector: ".events-gallery",
 });

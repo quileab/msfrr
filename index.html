@@ -5,167 +5,248 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Masfarre - Sonido e Iluminacion</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <link rel="stylesheet" href="src/styles.css">
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/bold/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link rel="stylesheet" href="src/venobox.min.css" />
 </head>
 
+<body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+  <!-- Responsive Navbar with vanilla JS -->
+  <nav class="bg-white shadow-md dark:bg-gray-800 dark:text-white">
+    <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center">
+        <img src="images/logooscuro.png" alt="Logo" class="h-8 mr-2 dark:hidden">
+        <img src="images/logoclaro.png" alt="Logo" class="h-8 mr-2 light:hidden">
+      </a>
 
-<body>
-  <!-- Navbar -->
-  <nav class="bg-gray-800">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
-          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset" aria-controls="mobile-menu" aria-expanded="false">
-            <span class="absolute -inset-0.5"></span>
-            <span class="sr-only">Open main menu</span>
-            <!--
-              Icon when menu is closed.
-  
-              Menu open: "hidden", Menu closed: "block"
-            -->
-            <svg class="block size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
-            <!--
-              Icon when menu is open.
-  
-              Menu open: "block", Menu closed: "hidden"
-            -->
-            <svg class="hidden size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-          <div class="flex shrink-0 items-center">
-            <img class="h-8 w-auto" src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          </div>
-          <div class="hidden sm:ml-6 sm:block">
-            <div class="flex space-x-4">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
-            </div>
-          </div>
-        </div>
-        <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <button type="button" class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden">
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">View notifications</span>
-            <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
-            </svg>
-          </button>
-  
-          <!-- Profile dropdown -->
-          <div class="relative ml-3">
-            <div>
-              <button type="button" class="relative flex rounded-full bg-gray-800 text-sm focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
-                <img class="size-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-              </button>
-            </div>
-              <!-- Dropdown menu, show/hide based on menu state.
-  
-              Entering: "transition ease-out duration-100"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95" -->
-          
-            <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 ring-1 shadow-lg ring-black/5 focus:outline-hidden" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-              <!-- Active: "bg-gray-100 outline-hidden", Not Active: "" -->
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-            </div>
-          </div>
-        </div>
+      <div class="hidden md:flex space-x-4">
+        <a href="#" class="hover:text-gray-600">Nosotros</a>
+        <a href="#" class="hover:text-gray-600">Servicios</a>
+        <a href="#" class="hover:text-gray-600">Tendencias</a>
       </div>
+
+      <button id="menu-toggle" class="md:hidden text-gray-600 hover:text-gray-800 focus:outline-none focus:text-gray-800
+          dark:focus:text-white dark:hover:text-white dark:text-white">
+        <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+          <path id="menu-icon" fill-rule="evenodd" clip-rule="evenodd"
+            d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z" />
+          <path id="close-icon" class="hidden" fill-rule="evenodd" clip-rule="evenodd"
+            d="M18.707 17.293a1 1 0 0 1-1.414 1.414L12 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L10.586 12 5.293 6.707a1 1 0 0 1 1.414-1.414L12 10.586l5.293-5.293a1 1 0 0 1 1.414 1.414L13.414 12l5.293 5.293Z" />
+        </svg>
+      </button>
     </div>
-  
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pt-2 pb-3">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white" aria-current="page">Dashboard</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Team</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Projects</a>
-        <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Calendar</a>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden dark:bg-gray-900 dark:text-white bg-gray-100 text-gray-900
+      position-relative z-50 top-0 inset-x-0 p-4">
+      <div class="px-4 py-2 space-y-1">
+        <a href="#" class="block hover:bg-gray-100/20 px-3 py-2 rounded">Nosotros</a>
+        <a href="#" class="block hover:bg-gray-100/20 px-3 py-2 rounded">Servicios</a>
+        <a href="#" class="block hover:bg-gray-100/20 px-3 py-2 rounded">Tendencias</a>
       </div>
     </div>
   </nav>
-<!-- FIN DEL NAVBAR -->
+  <!-- FIN DEL NAVBAR -->
 
-<!-- HEADER -->
-<div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-  <img src="imges/backgroundheader.jpg" alt="Fondo" class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
-  <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-    <div class="aspect-1097/845 w-[68.5625rem] bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-    <div class="aspect-1097/845 w-[68.5625rem] bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-  </div>
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0">
-      <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Work with us</h2>
-      <p class="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.</p>
-    </div>
-    <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-      <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-        <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
-        <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+  <!-- HEADER -->
+  <!-- <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+    <img src="images/backgroundheader.jpg" alt="Fondo"
+      class="absolute inset-0 -z-10 size-full object-cover object-right md:object-center">
+    <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl"
+      aria-hidden="true">
+      <div class="aspect-1097/845 w-[68.5625rem] bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
       </div>
-      <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="flex flex-col-reverse gap-1">
-          <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
-          <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
-        </div>
-        <div class="flex flex-col-reverse gap-1">
-          <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
-          <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
-        </div>
-        <div class="flex flex-col-reverse gap-1">
-          <dt class="text-base/7 text-gray-300">Hours per week</dt>
-          <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
-        </div>
-        <div class="flex flex-col-reverse gap-1">
-          <dt class="text-base/7 text-gray-300">Paid time off</dt>
-          <dd class="text-4xl font-semibold tracking-tight text-white">Unlimited</dd>
-        </div>
-      </dl>
     </div>
-  </div>
-</div>
-<!-- FIN DEL HEADER -->
+    <div
+      class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu"
+      aria-hidden="true">
+      <div class="aspect-1097/845 w-[68.5625rem] bg-linear-to-tr from-[#ff4694] to-[#776fff] opacity-20"
+        style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+      </div>
+    </div>
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:mx-0">
+        <h2 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">Work with us</h2>
+        <p class="mt-8 text-lg font-medium text-pretty text-gray-300 sm:text-xl/8">Anim aute id magna aliqua ad ad non
+          deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.</p>
+      </div>
+      <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        <div
+          class="grid grid-cols-1 gap-x-8 gap-y-6 text-base/7 font-semibold text-white sm:grid-cols-2 md:flex lg:gap-x-10">
+          <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
+          <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
+          <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
+          <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+        </div>
+        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-base/7 text-gray-300">Offices worldwide</dt>
+            <dd class="text-4xl font-semibold tracking-tight text-white">12</dd>
+          </div>
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-base/7 text-gray-300">Full-time colleagues</dt>
+            <dd class="text-4xl font-semibold tracking-tight text-white">300+</dd>
+          </div>
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-base/7 text-gray-300">Hours per week</dt>
+            <dd class="text-4xl font-semibold tracking-tight text-white">40</dd>
+          </div>
+          <div class="flex flex-col-reverse gap-1">
+            <dt class="text-base/7 text-gray-300">Paid time off</dt>
+            <dd class="text-4xl font-semibold tracking-tight text-white">Unlimited</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div> -->
+  <!-- FIN DEL HEADER -->
+  <img src="images/backgroundheader.jpg" alt="Fondo" class="w-full">
 
+  <section id="about" class="m-8">
+    <img src="images/about.jpg" alt="Fondo" class="w-full md:h-52 h-full object-cover rounded-2xl">
+    <div data-animate="animate__fadeInLeft" class="animate__animated animate__slow">
+      <h1 class="text-3xl font-russo tracking-widest my-4">SOBRE <span class="masf-red">NOSOTROS</span></h1>
+      <p class="text-justify indent-8 text-slate-500">
+        En Masfarre Servicios Audiovisuales nos encanta formar parte de tus momentos más especiales. Nos dedicamos a
+        llevar la mejor tecnología y creatividad a cada evento, desde pantallas LED y fotografía hasta DJ, efectos
+        especiales y todo lo que necesites para que tu fiesta sea única. Sabemos que cada celebración tiene su propio
+        estilo, por eso trabajamos codo a codo con vos para que todo salga tal cual lo soñaste. Desde cumpleaños y
+        casamientos hasta eventos empresariales, ponemos toda la onda y profesionalismo para que tu evento quede en la
+        memoria de todos.
+      <p class="text-justify indent-8 text-slate-500">
+        No solo hacemos eventos, creamos experiencias que se viven y disfrutan a pleno.
+      </p>
+      <p class="text-justify indent-8 text-slate-500">
+        Si buscás algo diferente, <i>¡acá estamos para hacerlo realidad!</i>
+      </p>
+    </div>
+  </section>
 
+  <section id="eventos" class="m-8">
+    <img src="images/ultevent.jpg" alt="Fondo" class="w-full md:h-52 h-full object-cover rounded-2xl">
+    <div data-animate="animate__fadeInLeft" class="animate__animated animate__slow">
+      <h1 class="text-3xl font-russo tracking-widest my-4">ULTIMOS <span class="masf-red">EVENTOS</span></h1>
+      <p class="text-justify indent-8 text-slate-500">
+        Conoce lo último en tendencias audiovisuales.
+      </p>
+    </div>
+    <div id="gallery" class="grid md:grid-cols-3 grid-cols-2 gap-4 mt-4">
+      <a class="events-gallery" data-gall="gallery01" href="images/events/1.jpg">
+        <img src="images/events/1.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/2.jpg">
+        <img src="images/events/2.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/3.jpg">
+        <img src="images/events/3.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/4.jpg">
+        <img src="images/events/4.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/5.jpg">
+        <img src="images/events/5.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/6.jpg">
+        <img src="images/events/6.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/7.jpg">
+        <img src="images/events/7.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/8.jpg">
+        <img src="images/events/8.jpg">
+      </a>
+      <a class="events-gallery" data-gall="gallery01" href="images/events/9.jpg">
+        <img src="images/events/9.jpg">
+      </a>
+    </div>
+  </section>
 
-  <!-- <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <section id="contactus" class="flex bg-masfarre-geometry text-white bg-gray-900 p-8 align-middle items-center">
+    <h1 class="text-3xl font-russo py-4">Estamos disponibles para programar tu evento <span
+        class="animate-ping">_</span></h1>
+    <a href="#contact" class="hover:underline text-white/70 hover:text-white text-xl ml-4">
+      Contactanos
+    </a>
+  </section>
+
+  <section id="about" class="m-8">
+    <img src="images/about.jpg" alt="Fondo" class="w-full md:h-52 h-full object-cover rounded-2xl">
+    <div data-animate="animate__fadeInLeft" class="animate__animated animate__slow">
+      <h1 class="text-3xl font-russo tracking-widest mt-4">ULTIMOS <span class="masf-fuchsia">POSTS</span></h1>
+      <p class="text-justify indent-8 text-slate-500">
+        Lo que dicen los que nos conocen
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="m-8">
+    <div data-animate="animate__fadeInLeft" class="animate__animated animate__slow">
+      <h1 class="text-3xl font-russo tracking-widest my-4">CONTACTANOS <span class="masf-violet">¿HABLAMOS?...</span>
+      </h1>
+      <div class=" grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div id="contact-description">
+          <p class="text-justify indent-8 text-slate-500 mb-4">
+            Estamos acá para ayudarte. Podés completar el formulario en esta sección y nos pondremos en contacto con vos
+            lo
+            antes posible. Si preferís, también podés llamarnos de lunes a viernes, entre las 9:00 y las 20:00, ¡y
+            charlamos
+            directamente! Estamos para responder tus dudas y hacer realidad tus ideas.
+          </p>
+          <p class="leading-8">
+            <i class="ph-bold ph-map-pin text-xl"></i>
+            <b>Direccion:</b> Olessio 817, Reconquista, Santa Fe 3560
+            <br>
+            <i class="ph-bold ph-envelope text-xl"></i>
+            <b>Email:</b> edy@masfarre.com
+            <br>
+            <i class="ph-bold ph-phone text-xl"></i>
+            <b>Teléfono:</b> +77 033 442 55 57
+            <br>
+            <i class="ph-bold ph-instagram-logo text-xl"></i>
+            <b>Instagram:</b> @masfarre.ok
+            <br>
+          </p>
+
+        </div>
+        <div>
+          <form class="p-4 shadow-md rounded-md" action="sendmail.php" method="POST">
+            <input name="fullname" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="text"
+              placeholder="Apellido y Nombre" required>
+            <input name="email" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="email"
+              placeholder="Email" required>
+            <input name="phone" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="tel"
+              placeholder="Teléfono" required>
+            <label class="text-xs"><span class="masf-red">*</span> Fecha del Evento</label>
+            <input name="eventdate" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="date"
+              placeholder="Fecha del evento" required>
+            <input name="eventtype" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="text"
+              placeholder="Tipo de evento" required>
+            <input name="eventplace" class="w-full p-2 rounded-md border border-gray-300 mb-4" type="text"
+              placeholder="Lugar del evento" required>
+            <textarea name="message" class="w-full p-2 rounded-md border border-gray-300 mb-4" rows="4"
+              placeholder="Mensaje" required></textarea>
+            <button type="submit"
+              class="transition duration-300 w-full p-2 rounded-md border-2 bg-red-600 text-white hover:border-red-600 hover:text-black hover:bg-white">
+              Enviar <i class="ph-bold ph-paper-plane-right"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
   <div data-animate="animate__bounce" class="animate__animated">
     <i class="ph-bold ph-smiley"></i>
     <i class="ph-bold ph-heart" style="color: hotpink"></i>
     <i class="ph-bold ph-cube"></i>
   </div>
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
-  <div class="my-24"></div>x
+
   <div data-animate="animate__bounce" class="animate__animated">
     <i class="ph-bold ph-smiley"></i>
     <i class="ph-bold ph-heart" style="color: hotpink"></i>
@@ -173,6 +254,8 @@
   </div>
   <div class="my-24"></div>x -->
 </body>
+<script src="src/venobox.min.js"></script>
 <script src="src/main.js"></script>
+
 
 </html>
